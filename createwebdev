@@ -1,0 +1,33 @@
+#!/bin/sh
+
+BASEDIR=/home/ecdown/src/Java
+
+if [ $# -lt 1 ];
+then
+  echo "Need to specify a project directory"
+  exit 1
+fi 
+
+PROJDIR=$BASEDIR/$1
+
+if [ -d $PROJDIR ] 
+then
+   echo "Directory: $PROJDIR Exists. Exiting"
+   exit 1
+fi
+
+
+mkdir $PROJDIR
+mkdir $PROJDIR/etc
+mkdir $PROJDIR/lib 
+mkdir $PROJDIR/src
+mkdir $PROJDIR/src/com
+mkdir $PROJDIR/src/com/etechtips
+mkdir $PROJDIR/src/com/etechtips/web
+mkdir $PROJDIR/src/com/etechtips/model
+mkdir $PROJDIR/classes
+mkdir $PROJDIR/classes/com
+mkdir $PROJDIR/classes/com/etechtips
+mkdir $PROJDIR/classes/com/etechtips/web
+mkdir $PROJDIR/classes/com/etechtips/model
+mkdir $PROJDIR/web
