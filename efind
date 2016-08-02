@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]; then
+  echo 1>&2 Usage: $0 ""
+  exit 127
+fi
+icase=
+search=
+
+while [ $# -ge 1 ]; do
+  case $1 in
+     -i) icase=$1;;
+     -c) counts=$1;;
+      *) search=$1 ;;
+  esac
+  shift
+done
+
+find . -type f -print0 | xargs -0 grep $counts $icase $search
+
