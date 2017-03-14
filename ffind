@@ -2,6 +2,9 @@
 
 if [ $# -lt 1 ]; then
   echo 1>&2 Usage: $0 ""
+  echo "Find files with matching name"
+  echo "Arguments:"
+  echo "  -i ignore case"
   exit 127
 fi
 icase=
