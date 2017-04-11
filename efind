@@ -2,6 +2,11 @@
 
 if [ $# -lt 1 ]; then
   echo 1>&2 Usage: $0 ""
+  echo "Find files with matching pattern"
+  echo "Arguments:"
+  echo "   -c filename with match counts"
+  echo "   -i ignore case"
+  echo "   -l file matches only"
   exit 127
 fi
 icase=
