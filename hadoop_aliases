@@ -1,0 +1,10 @@
+
+#hadoop commands
+alias ha='hadoop '
+alias hls='hadoop fs -ls '
+alias hcat='hadoop fs -cat '
+alias hrm='hadoop fs -rm -r'
+
+#yarn commands
+alias ylist='yarn application -list'
+alias ykill='yarn application -kill '
