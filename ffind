@@ -12,10 +12,11 @@ icase=
 while [ $# -ge 1 ]; do
    case $1 in
      -i)  icase=$1;;
+     -f)  enttype=$2; typeent="-type $enttype"; shift;;
       *)  search=$1 ;;
    esac
    shift
 done
 
-find .  | grep $icase $search
+find . $typeent | grep $icase $search
 
