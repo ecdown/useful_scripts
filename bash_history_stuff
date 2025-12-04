@@ -1,0 +1,16 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+#HISTDIR=/home/ecdown/.bash_history_files
+
+mkdir -p $HISTDIR
+
+#export PROMPT_COMMAND='export HISTFILE=$HISTDIR/bash_history_$(date +%Y-%m-%d); history -a'
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+
