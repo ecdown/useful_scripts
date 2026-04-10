@@ -7,7 +7,8 @@
 #
 #  Author: Eric Downing <ecdown@etechtips.com>
 #
-#  Version: 1.3
+#  Version: 1.4
+#  v1.4: added maxdepth
 #############################################################
 
 ## Print Usage
@@ -16,6 +17,7 @@ usage_example() {
   echo "Find files with matching name"
   echo "Arguments:"
   echo "  -i ignore case"
+  echo "  -m <num> max directory depth"
   echo "  -d search directory names only"
   echo "  -f search file names only"
   exit 127
@@ -32,6 +34,8 @@ while [ $# -ge 1 ]; do
    case $1 in
      --help) usage_example; exit 127 ;;
      -i)  icase=$1;;
+     -m)  depthval="-maxdepth $2"
+	  shift;;
      -d)  typeent="-type d";;
      -f)  typeent="-type f";;
       *)  search=$1 ;;
@@ -46,5 +50,5 @@ if [ -z "$search" ]; then
 fi
 
 # Execute search with given args
-find . $typeent | grep $icase $search
+find . $depthval $typeent | grep $icase $search
 
